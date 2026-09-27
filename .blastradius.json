@@ -1,0 +1,21 @@
+{
+  "limits": {
+    "filesPerTurn": 15,
+    "filesPerSession": 60,
+    "deletionsPerTurn": 3
+  },
+  "protected": [
+    "**/.env*",
+    ".github/workflows/**",
+    "**/migrations/**",
+    "wrangler.*",
+    "package-lock.json",
+    "yarn.lock",
+    "pnpm-lock.yaml"
+  ],
+  "rules": {
+    "unreadOverwrite": true,
+    "bashDestructive": true
+  },
+  "ignore": ["node_modules/**", "dist/**", "build/**", ".git/**", ".next/**", "coverage/**"]
+}

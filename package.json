@@ -1,0 +1,30 @@
+{
+  "name": "blast-radius",
+  "version": "0.1.0",
+  "description": "A backstop for coding agents. Stays quiet for small changes, stops the run when the scope suddenly isn't small.",
+  "type": "module",
+  "bin": {
+    "blastradius": "bin/blastradius.js"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "claude-code",
+    "agent",
+    "hook",
+    "guardrail",
+    "safety",
+    "ai"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  }
+}
