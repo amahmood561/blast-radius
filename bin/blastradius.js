@@ -39,9 +39,21 @@ async function main() {
   }
 
   if (cmd === "init") {
+    // The hook fires on every tool call, so the command it registers has to
+    // resolve instantly and offline. An npx cache path does neither reliably.
+    const viaNpx = /[\\/]_npx[\\/]/.test(process.argv[1] || "");
     const written = init(process.cwd(), { command: flag("command", "blastradius hook") });
     console.log("blast-radius armed.\n");
     for (const w of written) console.log("  wrote  " + w);
+    if (viaNpx) {
+      console.log("\n  NOTE: you ran this through npx, but the hook registered as");
+      console.log("  `blastradius hook` — which needs blastradius on your PATH.");
+      console.log("  Install it for real before relying on the guard:");
+      console.log("      git clone https://github.com/amahmood561/blast-radius");
+      console.log("      cd blast-radius && npm link");
+      console.log("  Or re-run init with an explicit path:");
+      console.log("      blastradius init --command \"node /abs/path/bin/blastradius.js hook\"");
+    }
     console.log("\nRestart Claude Code so it picks up the hook.");
     return;
   }

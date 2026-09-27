@@ -48,7 +48,19 @@ trusted. **If this tool is noisy for you, its limits are wrong — raise them.**
 
 ## Install
 
-> **Not on npm yet.** Install from source until it is:
+> **Not on npm yet.** Two ways to get it today.
+
+**Try it without installing anything:**
+
+```bash
+npx github:amahmood561/blast-radius init
+```
+
+Good for a look. Not good for daily use — the hook fires on *every* tool call, and
+an npx-resolved command means a package resolution each time. `init` will warn you
+if you took this route.
+
+**Install it properly:**
 
 ```bash
 git clone https://github.com/amahmood561/blast-radius
